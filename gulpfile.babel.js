@@ -1,0 +1,186 @@
+import gulp from 'gulp';
+import sass from 'gulp-sass';
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
+import uglify from 'gulp-uglify';
+import rename from 'gulp-rename';
+import cleanCSS from 'gulp-clean-css';
+import pug from 'gulp-pug';
+import imagemin from 'gulp-imagemin'
+import newer from 'gulp-newer'
+import nodemon from 'gulp-nodemon'
+import sourcemaps from 'gulp-sourcemaps';
+import del from 'del';
+import config from './config/gulp';
+
+import browserSync from 'browser-sync';
+const reload = browserSync.reload;
+
+
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+import browserify from 'browserify';
+import watchify from 'watchify';
+import babelify from 'babelify';
+
+const clean = () => del(['assets']);
+export {
+  clean
+};
+
+export function styles(done) {
+  return gulp.src(config.paths.styles.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(cleanCSS())
+    // pass in options to the stream
+    .pipe(rename({
+      basename: 'main',
+      suffix: '.min'
+    }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.paths.styles.dest))
+    .pipe(reload({
+      stream: true
+    }))
+    .on('end', () => {
+      done();
+    });
+}
+
+export function scripts() {
+
+  watchify.args.debug = true;
+
+  var bundler;
+
+  const getBundler = () => {
+    if (!bundler) {
+      bundler = watchify(browserify(config.paths.scripts.src, watchify.args));
+    }
+    return bundler;
+  };
+
+  const rebundle = () => {
+    return getBundler()
+      .transform(babelify)
+      .bundle()
+      .on('error', function (err) {
+        console.log('Error: ' + err.message);
+      })
+      .pipe(source('main.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init())
+      .pipe(uglify())
+      .pipe(rename({
+        suffix: '.min'
+      }))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest(config.paths.scripts.dest))
+      .pipe(reload({
+        stream: true
+      }));
+  }
+
+  getBundler().on('update', rebundle);
+
+  return rebundle();
+
+}
+
+export function html(done) {
+  return gulp.src(config.paths.pug.src)
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(gulp.dest(config.paths.pug.dest))
+    .pipe(reload({
+      stream: true
+    }))
+    .on('end', () => {
+      done();
+    });
+}
+
+export function images(done) {
+  return gulp.src(config.paths.images.src, {
+      since: gulp.lastRun(images)
+    })
+    .pipe(newer(config.paths.images.dest)) // pass through newer images only
+    .pipe(imagemin({
+      optimizationLevel: 5
+    }))
+    .pipe(gulp.dest(config.paths.images.dest))
+    .pipe(reload({
+      stream: true
+    }))
+    .on('end', () => {
+      done();
+    });
+}
+
+export function fonts(done) {
+  return gulp.src(config.paths.fonts.src, {
+      since: gulp.lastRun(fonts)
+    })
+    .pipe(newer(config.paths.fonts.dest)) // pass through newer fonts only
+    .pipe(gulp.dest(config.paths.fonts.dest))
+    .pipe(reload({
+      stream: true
+    }))
+    .on('end', () => {
+      done();
+    });
+}
+
+export function watch(done) {
+  gulp.watch(config.paths.scripts.src, gulp.parallel(scripts));
+  gulp.watch(config.paths.styles.all, gulp.parallel(styles));
+  gulp.watch(config.paths.pug.all, gulp.parallel(html));
+  gulp.watch(config.paths.images.src, gulp.parallel(images));
+  done();
+}
+
+export function serveTask(cb) {
+  let started = false;
+  return nodemon(config.plugins.nodemon)
+    .on('start', function () {
+      if (!started) {
+        started = true;
+        cb();
+      }
+    })
+    .on('crash', () => {
+      console.log('nodemon.crash');
+    })
+    .on('restart', () => {
+      console.log('nodemon.restart ');
+    })
+    .once('quit', () => {
+      // handle ctrl+c without a big weep
+      process.exit();
+    });
+}
+
+function browserSyncTask(done) {
+  browserSync.init(null, config.plugins.browserSync)
+}
+
+const build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, fonts), (done) => {
+  done()
+});
+export {
+  build
+};
+
+const serve = gulp.series(gulp.parallel(html, styles, scripts, images, fonts, browserSyncTask, serveTask, watch), (done) => {
+  done()
+});
+export {
+  serve
+};
+
+/*
+ * Export a default task
+ */
+export default build;

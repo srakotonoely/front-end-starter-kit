@@ -1,0 +1,19 @@
+$grid-gutter-width-base: 2rem;
+
+@import "functions";
+@import "palettes";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/normalize.css/normalize.css";
+@import "typography";
+@import "layout";
+
+// Components
+@import "icon/icon";
+@import "button/button";
+@import "container/container";
+@import "header/header";
+@import "footer/footer";
+
+// Pages
+@import "../views/landing/index";

@@ -1,0 +1,21 @@
+block vars
+include variables
+include mixins
+
+doctype html
+html
+
+  include head
+
+  body(class= bodyClass)
+
+    include header
+
+    main
+      block content
+
+    include footer
+
+    block additionnalBlock
+
+    script(src=distUrl + 'scripts/main.min.js')
