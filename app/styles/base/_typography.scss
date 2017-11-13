@@ -1,24 +1,3 @@
-$font-family-base: 'regular', sans-serif;
-$font-family-bold: 'bold', sans-serif;
-
-@font-face {
-  font-family: 'bold';
-  src: url('../../fonts/bold-webfont.woff2') format('woff2'),
-  url('../../fonts/bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'regular';
-  src: url('../../fonts/regular-webfont.woff2') format('woff2'),
-  url('../../fonts/regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
 html,
 body {
   -webkit-font-smoothing: antialiased;
@@ -37,11 +16,6 @@ body {
 }
 :-moz-placeholder { /* Firefox 18- */
   color: map-get-deep($palettes, 'primary', 'lighter');
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 h1,

@@ -1,10 +1,12 @@
-# [Homepage](https://github.com/sitraka-rakotonoely/starter-kit)
+# [Front-End Starter Kit](https://github.com/sitraka-rakotonoely/starter-kit)
 
-## Quick start
-
+## Overview
 ## Features
+## Quick start
+### Install
+### Tasks
 
-## Browser support
+## Browser Support
 
 * Chrome *(latest 2)*
 * Edge *(latest 2)*
@@ -13,13 +15,14 @@
 * Opera *(latest 2)*
 * Safari *(latest 2)*
 
-## Documentation
-
+## Documentations and Recipes
 Take a look at the [documentation table of contents](dist/doc/TOC.md).
 This documentation is bundled with the project which makes it 
 available for offline reading and provides a useful starting point for
 any documentation you want to write about your project.
 
+## Inspiration
+Web Starter Kit is inspired by [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) by David Dias and [Web starter kit](https://github.com/google/web-starter-kit) by Google Teams.
 
 ## License
 

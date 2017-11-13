@@ -3,7 +3,7 @@ module.exports = function (app) {
     res.render('landing/index.pug');
   });
   app.get('/holding', function (req, res) {
-    res.render('holding/holding.pug');
+    res.render('holding/index.pug');
   });
   app.get('/404', function (req, res) {
     res.render('errors/404.pug');

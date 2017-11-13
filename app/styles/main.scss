@@ -1,19 +1,17 @@
-$grid-gutter-width-base: 2rem;
+@charset 'utf-8';
 
-@import "functions";
-@import "palettes";
+@import "./base/variables";
+
+// Vendors
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/normalize.css/normalize.css";
-@import "typography";
-@import "layout";
+
+// Bases
+@import "base/all";
 
 // Components
-@import "icon/icon";
-@import "button/button";
-@import "container/container";
-@import "header/header";
-@import "footer/footer";
+@import "components/all";
 
 // Pages
-@import "../views/landing/index";
+@import "pages/all";

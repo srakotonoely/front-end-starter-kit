@@ -6,6 +6,4 @@ class Main {
   }
 }
 
-// console.log('== Test launched == ');
-
 document.addEventListener('DOMContentLoaded', () => new Main());

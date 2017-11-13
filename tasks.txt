@@ -1,0 +1,26 @@
+Clean up project
+	Remove unused css, js components
+	Remove fonts
+Add Features
+	Lint
+	Js unit testing
+Integrate web bases
+	service worker
+	human.txt
+	robots.txt
+Integrate deployement tools
+  Prod Gulp Tasks
+  Firebase or other configs
+Tasks
+  Integrate all checklists features (https://github.com/thedaviddias/Front-End-Checklist)
+	Update readme and others documentation files
+	Readme
+		Overview
+		Features
+		Quickstart
+		Browser Support
+		Docs and Recipes
+		Inspiration
+      - Front-end checklists by david dias
+      - Web stater kit
+		License

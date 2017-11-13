@@ -1,0 +1,22 @@
+// @import 'https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto';
+
+@font-face {
+  font-family: 'bold';
+  src: url('../../fonts/bold-webfont.woff2') format('woff2'),
+  url('../../fonts/bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'regular';
+  src: url('../../fonts/regular-webfont.woff2') format('woff2'),
+  url('../../fonts/regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$font-family-base: 'regular', sans-serif;
+$font-family-bold: 'bold', sans-serif;
