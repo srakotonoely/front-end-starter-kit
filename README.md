@@ -5,7 +5,7 @@
 ## Features
 
 * Sass support
-* Performance optimization (Minify and concatenate JavaScript, CSS, HTML and images)
+* Performance optimization (Minify and concatenate JavaScript and CSS)
 * Code Linting
 * ES2015 via Babel 6.0
 * JavaScript Unit testing
@@ -83,7 +83,7 @@ This Starter Kit is inspired by [Front-End Checklist](https://github.com/thedavi
 
 ## Contribute
 
-Contributions, questions and comments are all welcome and encouraged. For code contributions to Front-End Starter Kit, please see our [Contribution guide](CONTRIBUTING.md) before submitting a pull request.
+Contributions, questions and comments are all welcome and encouraged. For code contributions to Front-End Starter Kit, please see [Contribution guide](CONTRIBUTING.md) before submitting a pull request.
 
 If you have any comments or suggestions feel free to contact me on [Linkedin](https://www.linkedin.com/in/sitraka-rakotonoely/)!
 
