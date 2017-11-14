@@ -166,6 +166,44 @@ function browserSyncTask(done) {
   browserSync.init(null, config.plugins.browserSync)
 }
 
+
+// ########################################
+
+const styles = gulp.series(clean, gulp.parallel(styles), (done) => {
+  done()
+});
+export {
+  styles
+};
+
+const scripts = gulp.series(clean, gulp.parallel(scripts), (done) => {
+  done()
+});
+export {
+  scripts
+};
+
+const templates = gulp.series(clean, gulp.parallel(html), (done) => {
+  done()
+});
+export {
+  templates
+};
+
+const images = gulp.series(clean, gulp.parallel(images), (done) => {
+  done()
+});
+export {
+  images
+};
+
+const fonts = gulp.series(clean, gulp.parallel(fonts), (done) => {
+  done()
+});
+export {
+  fonts
+};
+
 const build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, fonts), (done) => {
   done()
 });

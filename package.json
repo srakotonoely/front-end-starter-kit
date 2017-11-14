@@ -41,7 +41,12 @@
     "watchify": "^3.9.0"
   },
   "scripts": {
+    "build": "gulp build",
     "serve": "gulp serve",
-    "build": "gulp build"
+    "templates": "gulp templates",
+    "styles": "gulp styles",
+    "scripts": "gulp scripts",
+    "images": "gulp images",
+    "fonts": "gulp fonts"
   }
 }
