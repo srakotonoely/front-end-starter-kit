@@ -11,8 +11,7 @@
     "html5 boilerplate"
   ],
   "devDependencies": {
-    "bootstrap": "4.0.0-alpha.6",
-    "normalize.css": "^6.0.0"
+    "normalize.css": "8.0.0"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -32,7 +31,7 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
     "serve-favicon": "^2.4.3",
@@ -43,7 +42,7 @@
   "scripts": {
     "build": "gulp build",
     "serve": "gulp serve",
-    "templates": "gulp templates",
+    "html": "gulp html",
     "styles": "gulp styles",
     "scripts": "gulp scripts",
     "images": "gulp images",

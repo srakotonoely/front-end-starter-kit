@@ -10,10 +10,8 @@ app.set('views', path.join(__dirname, '/app/views'));
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, '/dist')));
 
-app.locals.pretty = true; // Essential to ensure the HTML is readeable
-app.use(favicon(__dirname + '/app/images/favicon.ico'));
-
-// app.use(cookie());
+app.locals.pretty = true;
+app.use(favicon(__dirname + '/favicon.ico'));
 
 require('./app/routes')(app);
 
