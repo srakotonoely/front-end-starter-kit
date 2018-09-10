@@ -1,8 +1,6 @@
-import UtilsInstance from './component/utils';
-
 class Main {
   constructor() {
-    console.log(UtilsInstance.test());
+    console.log("Hello world!");
   }
 }
 

@@ -1,4 +1,4 @@
-[Homepage](https://github.com/sitraka-rakotonoely/starter-kit)
+[Homepage](https://github.com/srakotonoely/starter-kit)
 
 ## Getting started
 

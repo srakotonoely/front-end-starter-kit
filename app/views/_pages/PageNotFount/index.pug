@@ -1,0 +1,10 @@
+extends ../../_layout/default
+
+block vars
+  - page = "404"
+
+block content
+  +intro({
+    title: "Page Not Found",
+    paragraph: "Sorry, but the page you were trying to view does not exist."
+  })

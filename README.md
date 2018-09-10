@@ -1,5 +1,5 @@
 # Sitraka Rakotonoely Starter Kit
-[![Build Status](https://travis-ci.org/sitraka-rakotonoely/front-end-starter-kit.svg?branch=master)](https://travis-ci.org/sitraka-rakotonoely/front-end-starter-kit)
+[![Build Status](https://travis-ci.org/srakotonoely/front-end-starter-kit.svg?branch=master)](https://travis-ci.org/srakotonoely/front-end-starter-kit)
 
 > A simple starterkit build with Gulp and Express.js for web development.
 
@@ -33,7 +33,7 @@
 To get you started you can simply clone the repository and install the dependencies:
 
 ```bash
-$ git clone https://github.com/sitraka-rakotonoely/front-end-starter-kit.git
+$ git clone https://github.com/srakotonoely/front-end-starter-kit.git
 $ cd front-end-starter-kit/ && yarn install
 ```
 
@@ -87,7 +87,7 @@ This Starter Kit is inspired by [Front-End Checklist](https://github.com/thedavi
 
 Contributions, questions and comments are all welcome and encouraged. For code contributions to Front-End Starter Kit, please see [Contribution guide](CONTRIBUTING.md) before submitting a pull request.
 
-If you have any comments or suggestions feel free to contact me on [Linkedin](https://www.linkedin.com/in/sitraka-rakotonoely/)!
+If you have any comments or suggestions feel free to contact me on [Linkedin](https://www.linkedin.com/in/srakotonoely/)!
 
 
 ## License

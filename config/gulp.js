@@ -20,7 +20,7 @@ var paths = {
       '!./app/views/_*/**/*.pug',
       '!./app/views/**/**/_*/*.pug'
     ],
-    dest: './dist/html'
+    dest: './dist/html/'
   },
   images: {
     src: 'app/images/**/*.{jpg,jpeg,png}',

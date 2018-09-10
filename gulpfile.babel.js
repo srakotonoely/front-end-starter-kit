@@ -11,24 +11,19 @@ import newer from 'gulp-newer'
 import nodemon from 'gulp-nodemon'
 import sourcemaps from 'gulp-sourcemaps';
 import del from 'del';
-import config from './config/gulp';
-
 import browserSync from 'browser-sync';
-const reload = browserSync.reload;
-
-
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import babelify from 'babelify';
+import config from './config/gulp';
+
+const reload = browserSync.reload;
 
 const clean = () => del(['assets']);
-export {
-  clean
-};
 
-export function styles(done) {
+function stylesTask(done) {
   return gulp.src(config.paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(sass())
@@ -48,7 +43,7 @@ export function styles(done) {
     });
 }
 
-export function scripts() {
+function scriptsTask() {
 
   watchify.args.debug = true;
 
@@ -88,7 +83,7 @@ export function scripts() {
 
 }
 
-export function html(done) {
+function htmlTask(done) {
   return gulp.src(config.paths.pug.src)
     .pipe(pug({
       pretty: true
@@ -102,7 +97,7 @@ export function html(done) {
     });
 }
 
-export function images(done) {
+function imagesTask(done) {
   return gulp.src(config.paths.images.src, {
       since: gulp.lastRun(images)
     })
@@ -119,7 +114,7 @@ export function images(done) {
     });
 }
 
-export function fonts(done) {
+function fontsTask(done) {
   return gulp.src(config.paths.fonts.src, {
       since: gulp.lastRun(fonts)
     })
@@ -133,15 +128,15 @@ export function fonts(done) {
     });
 }
 
-export function watch(done) {
-  gulp.watch(config.paths.scripts.src, gulp.parallel(scripts));
-  gulp.watch(config.paths.styles.all, gulp.parallel(styles));
-  gulp.watch(config.paths.pug.all, gulp.parallel(html));
-  gulp.watch(config.paths.images.src, gulp.parallel(images));
+function watchTask(done) {
+  gulp.watch(config.paths.scripts.src, gulp.parallel(scriptsTask));
+  gulp.watch(config.paths.styles.all, gulp.parallel(stylesTask));
+  gulp.watch(config.paths.pug.all, gulp.parallel(htmlTask));
+  gulp.watch(config.paths.images.src, gulp.parallel(imagesTask));
   done();
 }
 
-export function serveTask(cb) {
+function serveTask(cb) {
   let started = false;
   return nodemon(config.plugins.nodemon)
     .on('start', function () {
@@ -169,56 +164,30 @@ function browserSyncTask(done) {
 
 // ########################################
 
-const styles = gulp.series(clean, gulp.parallel(styles), (done) => {
+export const styles = gulp.series(clean, gulp.parallel(stylesTask), (done) => {
   done()
 });
-export {
-  styles
-};
 
-const scripts = gulp.series(clean, gulp.parallel(scripts), (done) => {
+export const scripts = gulp.series(clean, gulp.parallel(scriptsTask), (done) => {
   done()
 });
-export {
-  scripts
-};
 
-const templates = gulp.series(clean, gulp.parallel(html), (done) => {
+export const html = gulp.series(clean, gulp.parallel(htmlTask), (done) => {
   done()
 });
-export {
-  templates
-};
 
-const images = gulp.series(clean, gulp.parallel(images), (done) => {
+export const images = gulp.series(clean, gulp.parallel(imagesTask), (done) => {
   done()
 });
-export {
-  images
-};
 
-const fonts = gulp.series(clean, gulp.parallel(fonts), (done) => {
+export const fonts = gulp.series(clean, gulp.parallel(fontsTask), (done) => {
   done()
 });
-export {
-  fonts
-};
 
-const build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, fonts), (done) => {
+export const build = gulp.series(clean, gulp.parallel(htmlTask, stylesTask, scriptsTask, imagesTask, fontsTask), (done) => {
   done()
 });
-export {
-  build
-};
 
-const serve = gulp.series(gulp.parallel(html, styles, scripts, images, fonts, browserSyncTask, serveTask, watch), (done) => {
+export const serve = gulp.series(gulp.parallel(browserSyncTask, serveTask, watchTask), (done) => {
   done()
 });
-export {
-  serve
-};
-
-/*
- * Export a default task
- */
-export default build;

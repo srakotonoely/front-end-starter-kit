@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'StRyde-Bold';
+  src: url('../../fonts/StRyde-Bold/StRyde-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/StRyde-Bold/StRyde-Bold.otf')  format('opentype'),
+	     url('../../fonts/StRyde-Bold/StRyde-Bold.woff') format('woff'),
+       url('../../fonts/StRyde-Bold/StRyde-Bold.ttf')  format('truetype'),
+       url('../../fonts/StRyde-Bold/StRyde-Bold.svg#StRyde-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'StRyde-Regular';
+  src: url('../../fonts/StRyde-Regular/StRyde-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/StRyde-Regular/StRyde-Regular.otf')  format('opentype'),
+	     url('../../fonts/StRyde-Regular/StRyde-Regular.woff') format('woff'),
+       url('../../fonts/StRyde-Regular/StRyde-Regular.ttf')  format('truetype'),
+       url('../../fonts/StRyde-Regular/StRyde-Regular.svg#StRydeRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-family-base: 'StRyde-Regular', sans-serif;
+$font-family-bold: 'StRyde-Bold', sans-serif;
