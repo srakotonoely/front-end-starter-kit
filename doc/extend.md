@@ -1,2 +1,2 @@
-[Homepage](https://github.com/sitraka-rakotonoely/starter-kit) | [Documentation
+[Homepage](https://github.com/srakotonoely/starter-kit) | [Documentation
 table of contents](TOC.md)
