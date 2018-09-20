@@ -1,4 +1,4 @@
-# Sitraka Rakotonoely Starter Kit
+# Front-end Starter Kit
 [![Build Status](https://travis-ci.org/srakotonoely/front-end-starter-kit.svg?branch=master)](https://travis-ci.org/srakotonoely/front-end-starter-kit)
 
 > A simple starterkit build with Gulp and Express.js for web development.
