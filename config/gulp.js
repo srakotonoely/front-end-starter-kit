@@ -6,25 +6,27 @@ var paths = {
   styles: {
     src: 'app/styles/main.scss',
     all: './app/styles/**',
-    dest: './dist/styles/'
+    dest: './dist/css/'
   },
   scripts: {
     src: 'app/scripts/main.js',
-    dest: './dist/scripts/'
+    all: './app/scripts/**',
+    dest: './dist/js/'
   },
   pug: {
     all: './app/views/**',
     src: [
-      './app/views/**/*.pug',
-      '!./app/views/**/_*.pug',
-      '!./app/views/_*/**/*.pug',
-      '!./app/views/**/**/_*/*.pug'
+      './app/views/_pages/*.pug',
     ],
-    dest: './dist/html/'
+    dest: './dist/'
   },
   images: {
     src: 'app/images/**/*.{jpg,jpeg,png}',
     dest: './dist/images/'
+  },
+  statics: {
+    src: 'app/statics/*',
+    dest: './dist/'
   },
   fonts: {
     src: 'app/fonts/**/*',

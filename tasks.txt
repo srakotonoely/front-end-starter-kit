@@ -1,6 +1,3 @@
-Clean up project
-	Remove unused css, js components
-	Remove fonts
 Add Features
 	Lint
 	Js unit testing
@@ -14,7 +11,6 @@ Integrate deployement tools
 Tasks
   Integrate all checklists features (https://github.com/thedaviddias/Front-End-Checklist)
 	Update readme and others documentation files
-	Readme
 		Overview
 		Features
 		Quickstart
