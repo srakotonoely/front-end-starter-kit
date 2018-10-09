@@ -1,18 +1,17 @@
 {
   "name": "sitraka-starter-kit",
   "version": "0.1.0",
-  "description": "An opinionated boilerplate for web development.",
+  "description": "A front-end starter kit using Gulp on top of Express that helps you build fast and modern websites.",
   "main": "index.js",
-  "author": "Sitraka Lalaina RAKOTONOELY <rakotonoelysitraka@gmail.com>",
+  "author": "Sitraka Rakotonoely <rakotonoelysitraka@gmail.com>",
   "license": "MIT",
   "keywords": [
     "front-end",
-    "starter",
-    "html5 boilerplate"
+    "starter-kit",
+    "html5 boilerplate",
+    "Front-End Checklist",
+    "Web starter kit"
   ],
-  "devDependencies": {
-    "normalize.css": "8.0.0"
-  },
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -34,9 +33,10 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
+    "normalize.css": "8.0.0",
     "serve-favicon": "^2.4.3",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.9.0"
   },
   "scripts": {

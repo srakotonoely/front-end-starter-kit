@@ -128,6 +128,20 @@ function fontsTask(done) {
     });
 }
 
+function copyStaticsTask(done) {
+  return gulp.src(config.paths.statics.src, {
+      since: gulp.lastRun(statics)
+    })
+    .pipe(newer(config.paths.statics.dest)) // pass through newer statics only
+    .pipe(gulp.dest(config.paths.statics.dest))
+    .pipe(reload({
+      stream: true
+    }))
+    .on('end', () => {
+      done();
+    });
+}
+
 function watchTask(done) {
   gulp.watch(config.paths.scripts.src, gulp.parallel(scriptsTask));
   gulp.watch(config.paths.styles.all, gulp.parallel(stylesTask));
@@ -184,7 +198,11 @@ export const fonts = gulp.series(clean, gulp.parallel(fontsTask), (done) => {
   done()
 });
 
-export const build = gulp.series(clean, gulp.parallel(htmlTask, stylesTask, scriptsTask, imagesTask, fontsTask), (done) => {
+export const statics = gulp.series(clean, gulp.parallel(copyStaticsTask), (done) => {
+  done()
+});
+
+export const build = gulp.series(clean, gulp.parallel(htmlTask, stylesTask, scriptsTask, imagesTask, fontsTask, copyStaticsTask), (done) => {
   done()
 });
 

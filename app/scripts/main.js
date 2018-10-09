@@ -1,6 +1,6 @@
 class Main {
   constructor() {
-    console.log("Hello world!");
+    console.log("Hello!\nIt is working!");
   }
 }
 
